@@ -57,7 +57,7 @@ rails g graphql:object Post title:String rating:Int comments:[Comment]
 ```
 
 ### Generate models
-官方完全少了這步驟，`rails g graphql:object ... `並不會建立資料庫，只開 GraphQL API 而已。想當然沒有這步驟 API 怎麼打錯，請按順序補完下列動作。
+官方完全少了這步驟，`rails g graphql:object ... `並不會建立資料庫，只開 GraphQL API 而已。想當然沒有這步驟 API 怎麼打都錯，請按順序補完下列動作。
 
 ```shell
 # 建立 model：
@@ -87,10 +87,12 @@ rails db:migrate
 # 寫測試資料：
 # db/seeds.rb
 5.times do |i|
-  Post.create title: "Post_#{i + 1}", truncated_preview: "No.#{i}"
+  post_id = i + 1
+  Post.create title: "Post_#{post_id}", truncated_preview: "No.#{post_id}"
   2.times do |ii|
-    c = "content_#{i + 1}_#{ii + 1}"
-    Comment.create content: c, post_id: i + 1
+    index = ii + 1
+    c = "Post_#{post_id}'s comment: #{index}."
+    Comment.create content: c, post_id: post_id
   end
 end
 
@@ -166,9 +168,9 @@ rails s
 ```
 
 # 結論
-截至 2018 底，graphql-ruby 套件還是不太穩定，產品若要使用這項技術，工程團隊的底子要非常高，可預期許多問題得自行解決[^7]。它有提供非常好用的查詢介面(graphiql)，而且做到了程式碼即文檔，可以自動產生 API 文件。這兩點雖值得肯定，但在 Ruby 生態圈並沒有比成熟且泛用的 RESTful 好上十倍[^8]，所以 GraphQL 定位不是眾望所歸的取代者，比較像可能替代品而已。讓我們繼續觀望。
+截至 2018 年底，graphql-ruby 套件還是不太穩定，產品若要使用這項技術，工程團隊的底子要非常高，可預期許多問題得自行解決[^7]。它有提供非常好用的查詢介面(graphiql)，而且做到了程式碼即文檔，可以自動產生 API 文件。這兩點雖值得肯定，但在 Ruby 生態圈並沒有比成熟且泛用的 RESTful 好上十倍[^8]，所以 GraphQL 定位不是眾望所歸的取代者，比較像可能替代品而已。讓我們繼續觀望。
 
-[^2]: 參考[這邊](https://github.com/graphql/graphql-js/graphs/contributors)，主要貢獻者身份是前臉書工程師。現在好像也是社群維護，臉書不主導了。
+[^2]: 參考[這邊](https://github.com/graphql/graphql-js/graphs/contributors)，主要貢獻者身份是前臉書工程師。現在好像也是社群維護，不由臉書主導了。
 [^4]: 同樣功能的 API 新舊版[寫法並不同](https://github.com/rmosolgo/graphql-ruby/wiki/How-To:-Use-prepare-to-modify-or-validate-arguments-or-inputs)。附上[版本發行資訊](https://rubygems.org/gems/graphql/versions)，2018 年變動著實不小。
 [^7]: 反過來說，很有機會成為著名套件的貢獻者，大幅增加開發者和公司的知名度 : )
 [^8]: 更何況 RESTful 也早有好用的查詢介面，且能做到自動產生文檔。看看行之有年的 Swagger UI / Grape API framework。
