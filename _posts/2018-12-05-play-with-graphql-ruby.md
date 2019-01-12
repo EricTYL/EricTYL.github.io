@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "試玩 graphql-ruby 套件"
+title:  "初探 graphql-ruby 套件"
 tags: [Ruby, GraphQL, 技術札記]
 ---
 
@@ -167,7 +167,6 @@ rails s
 
 # 結論
 截至 2018 底，graphql-ruby 套件還是不太穩定，產品若要使用這項技術，工程團隊的底子要非常高，可預期許多問題得自行解決[^7]。它有提供非常好用的查詢介面(graphiql)，而且做到了程式碼即文檔，可以自動產生 API 文件。這兩點雖值得肯定，但在 Ruby 生態圈並沒有比成熟且泛用的 RESTful 好上十倍[^8]，所以 GraphQL 定位不是眾望所歸的取代者，比較像可能替代品而已。讓我們繼續觀望。
-
 
 [^2]: 參考[這邊](https://github.com/graphql/graphql-js/graphs/contributors)，主要貢獻者身份是前臉書工程師。現在好像也是社群維護，臉書不主導了。
 [^4]: 同樣功能的 API 新舊版[寫法並不同](https://github.com/rmosolgo/graphql-ruby/wiki/How-To:-Use-prepare-to-modify-or-validate-arguments-or-inputs)。附上[版本發行資訊](https://rubygems.org/gems/graphql/versions)，2018 年變動著實不小。
