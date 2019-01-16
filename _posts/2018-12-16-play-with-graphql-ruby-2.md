@@ -18,8 +18,8 @@ tags: [Ruby, GraphQL, 技術札記]
 # 範例流程
 
 1. 建立專案和引入套件
-* 定義資料庫和 model
-* 實作 GraphQL API
+2. 定義資料庫和 model
+3. 實作 GraphQL API
 
 ## 1. 建立專案和引入套件
 
