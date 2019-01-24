@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Stubs / Mocks in RSpec"
-tags: [Ruby, Jekyll, blog, Markdown, 技術札記]
+tags: [Ruby, Rspecn, 技術札記]
 ---
 
 `stub`、`mock`這兩個概念在 RSpec 裡面，若不論最初的調用名稱，只看參數、後續的調用方法，很難摸清它們的差異。感覺都是操作目標物件（object）並呼叫它的某個方法（方法可不必先定義、實作），然後讓人自定義回傳值。參考如下：
