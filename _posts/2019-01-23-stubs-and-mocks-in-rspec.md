@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Stubs / Mocks in RSpec"
+title: "Stubs and Mocks in RSpec"
 tags: [Ruby, Rspecn, 技術札記]
 ---
 
